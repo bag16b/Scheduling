@@ -12,4 +12,5 @@ database.o:	/usr/include/sys/cdefs.h
 database.o:	/usr/include/sys/null.h
 database.o:	advdec.h
 database.o:	advent.h
+database.o:	advtext.h
 database.o:	database.c

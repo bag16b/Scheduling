@@ -124,7 +124,9 @@ not_runnable_pick_new:
 		proc_ptr->p_rts_flags &= ~RTS_PREEMPTED;
 		if (proc_is_runnable(proc_ptr)) {
 			if (!is_zero64(proc_ptr->p_cpu_time_left))
-				enqueue_head(proc_ptr);
+				/*enqueue_head(proc_ptr);
+				*/
+				enqueue(proc_ptr);
 			else
 				enqueue(proc_ptr);
 		}

@@ -59,7 +59,7 @@ PRIVATE clock_t next_timeout;	/* realtime that next timer expires */
  */
 PRIVATE clock_t realtime = 0;		      /* real time clock */
 
-PUBLIC unsigned long int timeSecond = 5;
+PUBLIC unsigned long int timeSecond = 5000;
 
 /*
  * The boot processor timer interrupt handler. In addition to non-boot cpus it
@@ -180,6 +180,8 @@ PUBLIC int ap_timer_int_handler(void)
 
 	const unsigned ticks = 1;
 	struct proc * p, * billp;
+
+	timeSecond -= ticks;
 
 #ifdef CONFIG_WATCHDOG
 	/*

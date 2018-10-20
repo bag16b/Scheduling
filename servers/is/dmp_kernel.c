@@ -405,6 +405,7 @@ PUBLIC void proctab_dmp()
 	PRINTRTS(rp);
 	printf("\n");
   }
+  printf(get_uptime);
 }
 #endif				/* (CHIP == INTEL) */
 

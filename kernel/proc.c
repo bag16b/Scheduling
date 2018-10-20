@@ -1222,30 +1222,31 @@ PRIVATE void enqueue_head(struct proc *rp)
 {
 	
   enqueue(rp);  /*for unfair*/
-  /*
-  const int q = rp->p_priority;	 		/* scheduling queue to use */
   
+  /*const int q = rp->p_priority;*/	 		/* scheduling queue to use */
+  /*
   assert(proc_ptr_ok(rp));
   assert(proc_is_runnable(rp));
-
+  */
   /*
    * the process was runnable without its quantum expired when dequeued. A
    * process with no time left should vahe been handled else and differently
    */
+  /*
   assert(!is_zero64(rp->p_cpu_time_left));
 
   assert(q >= 0);
-
+  */
 
   /* Now add the process to the queue. */
-  if (!rdy_head[q]) {		/* add to empty queue */
-      rdy_head[q] = rdy_tail[q] = rp; 		/* create a new queue */
-      rp->p_nextready = NULL;		/* mark new end */
+  /*if (!rdy_head[q]) {	*/	/* add to empty queue */
+      /*rdy_head[q] = rdy_tail[q] = rp; */		/* create a new queue */
+     /* rp->p_nextready = NULL;	*/	/* mark new end */
   }
-  else						/* add to head of queue */
-      rp->p_nextready = rdy_head[q];		/* chain head of queue */
-      rdy_head[q] = rp;				/* set new queue head */
-*/
+  /*else*/						/* add to head of queue */
+      /*rp->p_nextready = rdy_head[q];*/		/* chain head of queue */
+      /*rdy_head[q] = rp;*/				/* set new queue head */
+  
 #if DEBUG_SANITYCHECKS
   assert(runqueues_ok());
 #endif

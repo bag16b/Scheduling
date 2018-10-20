@@ -1242,7 +1242,7 @@ PRIVATE void enqueue_head(struct proc *rp)
       rp->p_nextready = NULL;		/* mark new end */
   }
   else					/* add to head of queue */
-      ->p_nextready = rdy_head[q];		/* chain head of queue */
+      rp->p_nextready = rdy_head[q];		/* chain head of queue */
       rdy_head[q] = rp;		/* set new queue head */
   
 #if DEBUG_SANITYCHECKS

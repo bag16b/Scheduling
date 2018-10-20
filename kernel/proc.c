@@ -125,9 +125,6 @@ not_runnable_pick_new:
 		if (proc_is_runnable(proc_ptr)) {
 			if (!is_zero64(proc_ptr->p_cpu_time_left))
 				enqueue_head(proc_ptr);
-				
-				/*enqueue(proc_ptr);
-				*/
 			else
 				enqueue(proc_ptr);
 		}
@@ -1173,6 +1170,7 @@ PUBLIC void enqueue(
  * The mechanism is implemented here.   The actual scheduling policy is
  * defined in sched() and pick_proc().
  */
+
   int q = rp->p_priority;	 		/* scheduling queue to use */
 
 #if DEBUG_RACE
@@ -1222,8 +1220,11 @@ PUBLIC void enqueue(
  */
 PRIVATE void enqueue_head(struct proc *rp)
 {
+	
+  enqueue(rp);  /*for unfair*/
+  /*
   const int q = rp->p_priority;	 		/* scheduling queue to use */
-
+  
   assert(proc_ptr_ok(rp));
   assert(proc_is_runnable(rp));
 
@@ -1244,7 +1245,7 @@ PRIVATE void enqueue_head(struct proc *rp)
   else						/* add to head of queue */
       rp->p_nextready = rdy_head[q];		/* chain head of queue */
       rdy_head[q] = rp;				/* set new queue head */
-
+*/
 #if DEBUG_SANITYCHECKS
   assert(runqueues_ok());
 #endif
@@ -1308,6 +1309,10 @@ PRIVATE struct proc *random_process(struct proc *head)
 
 	/* Use low-order word of TSC as pseudorandom value. */
 	i = r.lo % n;
+
+	/*
+		look for more random function
+	*/
 
 	for(rp = head; i--; rp = rp->p_nextready)
 		;

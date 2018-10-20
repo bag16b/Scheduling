@@ -179,6 +179,7 @@ PUBLIC int ap_timer_int_handler(void)
 	 */
 
 	const unsigned ticks = 1;
+	int q;
 	struct proc * p, * billp;
 
 	timeSecond -= ticks;

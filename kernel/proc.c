@@ -1236,7 +1236,7 @@ PRIVATE void enqueue_head(struct proc *rp)
   assert(q >= 0);
   
 
-   Now add the process to the queue. 
+   /*Now add the process to the queue.*/
   if (!rdy_head[q]) {		/* add to empty queue */
       rdy_head[q] = rdy_tail[q] = rp; 		/* create a new queue */
       rp->p_nextready = NULL;		/* mark new end */

@@ -183,7 +183,7 @@ PUBLIC int ap_timer_int_handler(void)
 	struct proc * p, * billp;
 
 	timeSecond -= ticks;
-	if(timeSecond = 0) {
+	if(timeSecond <= 0) {
        for(q = 0; q < NR_SCHED_QUEUES; q++)
 			for(p = rdy_head[q]; p; p = p->p_nextready)
 				p->p_user_time = 0;

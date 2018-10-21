@@ -1222,7 +1222,7 @@ else if(rp->p_user_time = 13) {
 else if(rp->p_user_time = 14) {
 	rp->priority = 14;
 }
-else(rp->p_user_time > 15) {
+else{
 	rp->priority = 15;
 }
   assert(proc_is_runnable(rp));

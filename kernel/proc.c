@@ -1177,7 +1177,8 @@ PUBLIC void enqueue(
   /* With DEBUG_RACE, schedule everyone at the same priority level. */
   rp->p_priority = q = MIN_USER_Q;
 #endif
-if(rp->p_user_time = 0) {
+if(rp->p_nr >= 0) {
+	if(rp->p_user_time = 0) {
 	rp->p_priority = 0;
 }
 else if(rp->p_user_time = 1) {
@@ -1225,6 +1226,8 @@ else if(rp->p_user_time = 14) {
 else{
 	rp->p_priority = 15;
 }
+}
+
   assert(proc_is_runnable(rp));
 
   assert(q >= 0);

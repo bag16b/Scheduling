@@ -190,6 +190,7 @@ PUBLIC int ap_timer_int_handler(void)
 			}
 	   }		
 		timeSecond = 5;
+		printf(%d, timeSecond);
 	}
 	
 

@@ -192,7 +192,7 @@ PUBLIC int ap_timer_int_handler(void)
 				p->p_user_time = 0;
 			}
 	   }
-	   printf("%d", timeSecond);		
+	   		
 	}
 	
 

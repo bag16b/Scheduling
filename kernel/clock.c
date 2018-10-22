@@ -59,7 +59,7 @@ PRIVATE clock_t next_timeout;	/* realtime that next timer expires */
  */
 PRIVATE clock_t realtime = 0;		      /* real time clock */
 
-PUBLIC clock_t timeSecond = 200;
+PUBLIC int timeSecond = 200;
 
 /*
  * The boot processor timer interrupt handler. In addition to non-boot cpus it

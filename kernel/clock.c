@@ -183,7 +183,7 @@ PUBLIC int ap_timer_int_handler(void)
 	struct proc * p, * billp;
 
 	timeSecond -= ticks;
-	printf("%d", timeSecond);
+	
 	if(timeSecond <= 0) {
 	   
 	   timeSecond = 200;
@@ -191,7 +191,8 @@ PUBLIC int ap_timer_int_handler(void)
 		for(p = rdy_head[q]; p; p = p->p_nextready) {
 				p->p_user_time = 0;
 			}
-	   }		
+	   }
+	   printf("%d", timeSecond);		
 	}
 	
 

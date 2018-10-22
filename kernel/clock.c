@@ -184,6 +184,7 @@ PUBLIC int ap_timer_int_handler(void)
 
 	timeSecond -= ticks;
 	if(timeSecond <= 0) {
+	   printf("%d", timeSecond);
 	   timeSecond = 200;
        for(q = 0; q < NR_SCHED_QUEUES; q++) {
 		for(p = rdy_head[q]; p; p = p->p_nextready) {
